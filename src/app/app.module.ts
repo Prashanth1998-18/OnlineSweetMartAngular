@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchfilterPipe } from './board-admin/searchfilter.pipe';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AuthGuard } from './auth.guard';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AuthGuard } from './auth.guard';
     ProductListComponent,
     UpdateProductComponent,
     SearchfilterPipe,
-    NotfoundComponent
+    NotfoundComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,

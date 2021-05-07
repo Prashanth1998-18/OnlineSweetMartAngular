@@ -14,6 +14,7 @@ import { ProductDetailsComponent } from './board-admin/product-details/product-d
 import { UpdateProductComponent } from './board-admin/update-product/update-product.component';
 import { AuthGuard } from './auth.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
     { path: 'details/:id', component: ProductDetailsComponent,canActivate:[AuthGuard] },
   ],},
   { path: 'about', component:AboutComponent},
+  { path: 'contact', component:ContactUsComponent},
   {path: '404',component:NotfoundComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
   
