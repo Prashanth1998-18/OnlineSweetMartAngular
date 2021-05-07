@@ -12,22 +12,27 @@ import { ProductListComponent } from './board-admin/product-list/product-list.co
 import { CreateProductComponent } from './board-admin/create-product/create-product.component';
 import { ProductDetailsComponent } from './board-admin/product-details/product-details.component';
 import { UpdateProductComponent } from './board-admin/update-product/update-product.component';
+import { AuthGuard } from './auth.guard';
+import { NotfoundComponent } from './notfound/notfound.component';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'user', component: BoardUserComponent },
-  { path: 'admin', component: BoardAdminComponent,
+  { path: 'profile', component: ProfileComponent,canActivate:[AuthGuard] },
+  { path: 'user', component: BoardUserComponent,canActivate:[AuthGuard] },
+  { path: 'admin', component: BoardAdminComponent,canActivate:[AuthGuard],
   children:[
-    { path: 'products', component: ProductListComponent },
-    { path: 'add', component: CreateProductComponent },
-    { path: 'update/:id', component: UpdateProductComponent },
-    { path: 'details/:id', component: ProductDetailsComponent },
-  ]},
+    { path: 'products', component: ProductListComponent,canActivate:[AuthGuard] },
+    { path: 'add', component: CreateProductComponent,canActivate:[AuthGuard] },
+    { path: 'update/:id', component: UpdateProductComponent,canActivate:[AuthGuard] },
+    { path: 'details/:id', component: ProductDetailsComponent,canActivate:[AuthGuard] },
+  ],},
   { path: 'about', component:AboutComponent},
+  {path: '404',component:NotfoundComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
+  
 ];
 
 @NgModule({

@@ -35,7 +35,11 @@ showUserBoard=false;
     var cfrm=confirm("Do you want to LOGOUT");
     if(cfrm){
     this.tokenStorageService.signOut();
-    window.location.reload();
+    //window.location.reload();
+    window.sessionStorage.clear();
+    localStorage.clear();
     }
+   
+    this.isLoggedIn= false;
   }
 }

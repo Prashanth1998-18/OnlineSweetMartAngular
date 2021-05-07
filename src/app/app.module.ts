@@ -22,6 +22,8 @@ import { ProductListComponent } from './board-admin/product-list/product-list.co
 import { UpdateProductComponent } from './board-admin/update-product/update-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchfilterPipe } from './board-admin/searchfilter.pipe';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { SearchfilterPipe } from './board-admin/searchfilter.pipe';
     ProductDetailsComponent,
     ProductListComponent,
     UpdateProductComponent,
-    SearchfilterPipe
+    SearchfilterPipe,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +50,10 @@ import { SearchfilterPipe } from './board-admin/searchfilter.pipe';
     BrowserAnimationsModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

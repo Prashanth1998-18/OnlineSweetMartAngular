@@ -13,13 +13,14 @@ export class LoginComponent implements OnInit {
     username: null,
     password: null
   };
+  currentUser: any;
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
 
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router:Router) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router:Router,private token:TokenStorageService) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -58,6 +59,10 @@ export class LoginComponent implements OnInit {
   }
 
   navigatetohome(){
+    this.currentUser=this.token.getUser();
+    if(this.currentUser.roles.includes("ROLE_ADMIN"))
+    this.router.navigate(['admin/products']);
+    else
     this.router.navigate(['home']);
   }
 

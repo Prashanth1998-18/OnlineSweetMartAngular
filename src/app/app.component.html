@@ -1,15 +1,15 @@
 <div id="app" style="font-size: 20px;">
   <header>
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
+  <nav class="navbar navbar-expand" style="background-color: rgb(156, 236, 183); color:#000000" >
     <a href="#" class="navbar-brand">Online SweetMart</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
         <a href="/home" class="nav-link" routerLink="home"><i class="fa fa-fw fa-home"></i>Home </a>
       </li>
-      <li class="nav-item" *ngIf="showAdminBoard">
+      <li class="nav-item" *ngIf="showAdminBoard && isLoggedIn">
         <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
       </li>
-      <li class="nav-item" *ngIf="showUserBoard">
+      <li class="nav-item" *ngIf="showUserBoard && isLoggedIn">
         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
       </li>
       <li class="nav-item">
