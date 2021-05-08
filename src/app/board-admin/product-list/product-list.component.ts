@@ -43,7 +43,7 @@ export class ProductListComponent implements OnInit {
 }
 
   productDetails(id: number){
-    this.router.navigate(['admin/details', id]);
+    this.router.navigate(['admin/proddetails', id]);
   }
 
   updateProduct(id: number){

@@ -21,10 +21,14 @@ import { ProductDetailsComponent } from './board-admin/product-details/product-d
 import { ProductListComponent } from './board-admin/product-list/product-list.component';
 import { UpdateProductComponent } from './board-admin/update-product/update-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SearchfilterPipe } from './board-admin/searchfilter.pipe';
+import { SearchfilterPipeProduct } from './board-admin/searchfilterProduct.pipe';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AuthGuard } from './auth.guard';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { OrdersComponent } from './profile/orders/orders.component';
+import { SweetorderListComponent } from './board-admin/sweetorder-list/sweetorder-list.component';
+import { ViewdetailComponent } from './board-admin/viewdetail/viewdetail.component';
+import { SearchfilterPipeSweetOrder } from './board-admin/searchfilterorder.pipe';
 
 @NgModule({
   declarations: [
@@ -40,9 +44,13 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     ProductDetailsComponent,
     ProductListComponent,
     UpdateProductComponent,
-    SearchfilterPipe,
+    SearchfilterPipeProduct,
     NotfoundComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    OrdersComponent,
+    SweetorderListComponent,
+    ViewdetailComponent,
+    SearchfilterPipeSweetOrder
   ],
   imports: [
     BrowserModule,
@@ -53,7 +61,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
   ],
   providers: [authInterceptorProviders,AuthGuard],
   bootstrap: [AppComponent]

@@ -15,6 +15,9 @@ import { UpdateProductComponent } from './board-admin/update-product/update-prod
 import { AuthGuard } from './auth.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { OrdersComponent } from './profile/orders/orders.component';
+import { SweetorderListComponent } from './board-admin/sweetorder-list/sweetorder-list.component';
+import { ViewdetailComponent } from './board-admin/viewdetail/viewdetail.component';
 
 
 const routes: Routes = [
@@ -23,12 +26,15 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent,canActivate:[AuthGuard] },
   { path: 'user', component: BoardUserComponent,canActivate:[AuthGuard] },
+  { path: 'myorders', component:OrdersComponent,canActivate:[AuthGuard]},
   { path: 'admin', component: BoardAdminComponent,canActivate:[AuthGuard],
   children:[
     { path: 'products', component: ProductListComponent,canActivate:[AuthGuard] },
     { path: 'add', component: CreateProductComponent,canActivate:[AuthGuard] },
     { path: 'update/:id', component: UpdateProductComponent,canActivate:[AuthGuard] },
-    { path: 'details/:id', component: ProductDetailsComponent,canActivate:[AuthGuard] },
+    { path: 'proddetails/:id', component: ProductDetailsComponent,canActivate:[AuthGuard] },
+    { path: 'sweetorder', component: SweetorderListComponent,canActivate:[AuthGuard] },
+    { path: 'orderdetails/:id', component: ViewdetailComponent,canActivate:[AuthGuard] },
   ],},
   { path: 'about', component:AboutComponent},
   { path: 'contact', component:ContactUsComponent},

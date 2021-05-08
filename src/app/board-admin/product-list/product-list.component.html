@@ -25,7 +25,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let p of products | searchfilter:searchValue">
+          <tr *ngFor="let p of products | searchfilterproduct:searchValue">
             <td>{{p.prodId}}</td>
             <td>{{p.prodName}}</td>
             <td>{{p.prodPrice}}</td>

@@ -1,22 +1,22 @@
 <div id="app" style="font-size: 20px;">
   <header>
-  <nav class="navbar navbar-expand bg-dark"  >
-    <a href="#" class="navbar-brand">Online SweetMart</a>
+  <nav class="navbar navbar-expand"  >
+    <a href="#" class="navbar-brand"><i class="fas fa-store"></i><strong style="font-family: cursive;">Sweet Mart</strong></a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home"><i class="fa fa-fw fa-home"></i>Home </a>
+        <a href="/home" class="nav-link" routerLink="home" ><i class="fa fa-fw fa-home"></i>Home </a>
       </li>
       <li class="nav-item" *ngIf="showAdminBoard && isLoggedIn">
         <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
       </li>
-      <li class="nav-item" *ngIf="showUserBoard && isLoggedIn">
+      <!-- <li class="nav-item" *ngIf="showUserBoard && isLoggedIn">
         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a href="/about" class="nav-link" routerLink="about">About</a>
       </li>
       <li class="nav-item">
-        <a href="/contact" class="nav-link" routerLink="contact">Contact Us</a>
+        <a href="/contact" class="nav-link" routerLink="contact"><i class="fa fa-envelope" aria-hidden="true"></i>  Contact Us</a>
       </li>
     </ul>
 
@@ -45,7 +45,10 @@
     <div class="dropdown">
     <button class="btn btn-primary">{{ username }}&nbsp;<i class="fa fa-caret-down"></i></button>
   <div class="dropdown-content">
-    <a href="/profile" class="nav-link" routerLink="profile">My Profile</a>
+    <a href="/profile" class="nav-link" routerLink="profile">Profile</a>
+    <div *ngIf="showUserBoard">
+    <a href="/myorders" class="nav-link" routerLink="myorders">My Orders</a>
+  </div>
   </div>
   </div>
   </li>
@@ -56,9 +59,13 @@
 </ul>
 </nav>
 </header>
-<marquee behaviour="alternate" BGCOLOR="burlywood"><b style="color: darkred">OFFER ALERT</b> Get 5% discount. Use code <b>STAYSAFE</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<marquee behaviour="alternate" BGCOLOR="White"><b style="color: darkred">OFFER ALERT</b> Get 5% discount. Use code <b>STAYSAFE</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="bg-warn"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>  Delivery May get delayed due to Restrictions</b></marquee>
 
     <router-outlet></router-outlet>
 
+    <hr>
+    <footer>
+      footer 
+    </footer>
 </div>

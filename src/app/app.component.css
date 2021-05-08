@@ -32,3 +32,24 @@
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+a{ 
+  color: rgb(35, 138, 221);
+}
+
+active{ 
+  color: darkslategray;
+}
+
+footer{
+  /* position:absolute; */
+  text-align: center;
+  color:aliceblue;
+  background-color: rgb(35, 138, 221);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* .navbar{
+  background-color:rgba(226, 223, 223, 0.815)
+} */
