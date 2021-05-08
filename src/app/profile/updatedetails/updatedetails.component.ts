@@ -31,16 +31,17 @@ export class UpdatedetailsComponent implements OnInit {
     this.customer.updateCustomer(this.cust).subscribe((data: any)=>{
       console.log(data+" from update details");
         this.cust = new customer();
-        this.gotoProfile();
     }, (error: any) => console.log(error));
   }
 
   onSubmit() {
     this.updatedetails();
+    this.gotoProfile();
   }
 
   gotoProfile(){
-    this.router.navigate(['profile']);
+    setTimeout(()=>{window.location.reload();},100);
+    this.router.navigate(['/profile']);
   }
 
 }
