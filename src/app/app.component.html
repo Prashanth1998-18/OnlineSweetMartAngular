@@ -1,35 +1,57 @@
-<div id="app" style="font-size: 20px;">
+<div id="app" style="font-size: 20px">
   <header>
-  <nav class="navbar navbar-expand"  >
-    <a href="#" class="navbar-brand"><i class="fas fa-store"></i><strong style="font-family: cursive;">Sweet Mart</strong></a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home" ><i class="fa fa-fw fa-home"></i>Home </a>
-      </li>
-      <li class="nav-item" *ngIf="showAdminBoard && isLoggedIn">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
-      </li>
-      <!-- <li class="nav-item" *ngIf="showUserBoard && isLoggedIn">
+    <nav class="navbar navbar-expand">
+      <a href="#" class="navbar-brand"
+        ><i class="bi bi-shop"></i
+        ><strong style="font-family: cursive">Sweet Mart</strong></a
+      >
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+        <li class="nav-item">
+          <a href="/home" class="nav-link" routerLink="home"
+            ><i class="bi bi-house-fill"></i>Home</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="showAdminBoard && isLoggedIn">
+          <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+        </li>
+        <!-- <li class="nav-item" *ngIf="showUserBoard && isLoggedIn">
         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
       </li> -->
-      <li class="nav-item">
-        <a href="/about" class="nav-link" routerLink="about">About</a>
-      </li>
-      <li class="nav-item">
-        <a href="/contact" class="nav-link" routerLink="contact"><i class="fa fa-envelope" aria-hidden="true"></i>  Contact Us</a>
-      </li>
-    </ul>
+        <li class="nav-item">
+          <a href="/about" class="nav-link" routerLink="about"
+            ><i class="bi bi-file-earmark-person"></i>About</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="/contact" class="nav-link" routerLink="contact"
+            ><i class="fa fa-envelope" aria-hidden="true"></i> Contact Us</a
+          >
+        </li>
+      </ul>
 
-    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link btn btn-primary" style="color: white;"  routerLink="register"><i class="fa fa-user-plus" aria-hidden="true"></i>   Sign Up</a>
-      </li> &nbsp;&nbsp;
-      <li class="nav-item">
-        <a href="/login" class="nav-link btn btn-warning" style="color: white;" routerLink="login"><i class="fa fa-fw fa-user"></i>Login</a>
-      </li>
-    </ul>
+      <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+        <li class="nav-item">
+          <a
+            href="/register"
+            class="nav-link btn btn-primary"
+            style="color: white"
+            routerLink="register"
+            ><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a
+          >
+        </li>
+        &nbsp;&nbsp;
+        <li class="nav-item">
+          <a
+            href="/login"
+            class="nav-link btn btn-warning"
+            style="color: white"
+            routerLink="login"
+            ><i class="bi bi-box-arrow-in-right"></i>&nbsp;Login</a
+          >
+        </li>
+      </ul>
 
-    <!-- <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <!-- <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
       <li class="nav-item">
         <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
       </li>
@@ -40,32 +62,98 @@
   </nav>
 </header> -->
 
-<ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-  <li class="nav-item">
-    <div class="dropdown">
-    <button class="btn btn-primary">{{ username }}&nbsp;<i class="fa fa-caret-down"></i></button>
-  <div class="dropdown-content">
-    <a href="/profile" class="nav-link" routerLink="profile">Profile</a>
-    <div *ngIf="showUserBoard">
-    <a href="/myorders" class="nav-link" routerLink="myorders">My Orders</a>
-  </div>
-  </div>
-  </div>
-  </li>
-  &nbsp;&nbsp;
-  <li class="nav-item">
-    <a href class="nav-link btn btn-warning" style="color: white;" (click)="logout()">LogOut&nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i></a>
-  </li>
-</ul>
-</nav>
-</header>
-<marquee behaviour="alternate" BGCOLOR="White"><b style="color: darkred">OFFER ALERT</b> Get 5% discount. Use code <b>STAYSAFE</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="bg-warn"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>  Delivery May get delayed due to Restrictions</b></marquee>
+      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <div class="dropdown">
+            <button class="btn btn-primary">
+              {{ username }}&nbsp;<i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="/profile" class="nav-link" routerLink="profile"
+                >Profile</a
+              >
+              <div *ngIf="showUserBoard">
+                <a href="/myorders" class="nav-link" routerLink="myorders"
+                  >My Orders</a
+                >
+              </div>
+              <a href="/userupdate" class="nav-link" routerLink="userupdate"
+                >Update details</a
+              >
+            </div>
+          </div>
+        </li>
+        &nbsp;&nbsp;
+        <li class="nav-item">
+          <a
+            href
+            class="nav-link btn btn-warning"
+            style="color: white"
+            (click)="logout()"
+            >LogOut&nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i
+          ></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <marquee behaviour="alternate" BGCOLOR="White"
+    ><b style="color: darkred">OFFER ALERT</b> Get 5% discount. Use code
+    <b>STAYSAFE</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="bg-warn"
+      ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Delivery
+      May get delayed due to Restrictions</b
+    ></marquee
+  >
 
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
+  <br />
 
-    <hr>
+  <hr />
+  <div class="footer-clean">
     <footer>
-      footer 
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-4 col-md-3 item">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="#">Web design</a></li>
+              <li><a href="#">Development</a></li>
+              <li><a href="#">Hosting</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-3 item">
+            <h3>About</h3>
+            <ul>
+              <li><a href="#">Company</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Legacy</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-md-3 item">
+            <h3>Contact Information</h3>
+            <p style="font-size: small"><strong>Address : </strong></p>
+            <p style="font-size: x-small;">Liberty Road, Opp TTD Temple,</p>
+            <p style="font-size: x-small;">Himayatnagar,</p>
+            <p style="font-size: x-small;">Hyderabad, 500029</p>
+            <p style="font-size: x-small;">Call : 9000810182</p>
+            <p style="font-size: x-small;">Email: sweetmart@gmail.com</p>
+          </div>
+          <div class="col-lg-3 item social">
+            <a href="https://www.facebook.com/" target="_blank"
+              ><i class="icon ion-social-facebook"></i></a
+            ><a href="https://www.twitter.com/" target="_blank"
+              ><i class="icon ion-social-twitter"></i></a
+            ><a href="https://www.snapchat.com/" target="_blank"
+              ><i class="icon ion-social-snapchat"></i></a
+            ><a href="https://www.instagram.com/" target="_blank"
+              ><i class="icon ion-social-instagram"></i
+            ></a>
+            <p class="copyright">Sweet Mart © 2018</p>
+          </div>
+        </div>
+      </div>
     </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </div>

@@ -1,0 +1,39 @@
+<p>updatedetails works!</p>
+{{cust| json}}
+
+<div style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+  
+      <!-- <div class="form-group">
+          <label for="id">Customer Id</label>
+          <input type="number" class="form-control" id="id" required [(ngModel)]="cust.id" name="id">
+        </div> -->
+  
+      <div class="form-group">
+        <label for="username">Name</label>
+        <input type="text" class="form-control" id="username" required [(ngModel)]="cust.username" name="username">
+      </div>
+  
+      <div class="form-group">
+        <label for="cust.email">Email id</label>
+        <input type="text" class="form-control" id="cust.email" required [(ngModel)]="cust.email" name="cust.email">
+      </div>
+  
+      <div class="form-group">
+        <label for="cust.address.city">City</label>
+        <input type="text" class="form-control" id="cust.address.city" required [(ngModel)]="cust.address.city" name="cust.address.city">
+      </div>
+  
+      <div class="form-group">
+        <label for="cust.address.contactNo">Phone No.</label>
+        <input type="text" class="form-control" id="cust.address.contactNo" required [(ngModel)]="cust.address.contactNo" name="cust.address.contactNo">
+      </div>
+  
+      <div class="form-group">
+        <label for="cust.address.zip">Zip - Code</label>
+        <input type="text" class="form-control" id="cust.address.zip" required [(ngModel)]="cust.address.zip" name="cust.address.zip">
+      </div>
+  
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>

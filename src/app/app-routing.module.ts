@@ -22,6 +22,9 @@ import { CategoryListComponent } from './board-admin/category-list/category-list
 import { CategoryDetailsComponent } from './board-admin/category-details/category-details.component';
 import { CreateCategoryComponent } from './board-admin/create-category/create-category.component';
 import { UpdateCategoryComponent } from './board-admin/update-category/update-category.component';
+import { GetCustomersComponent } from './board-admin/get/get.component';
+import { GetbyidComponent } from './board-admin/getbyid/getbyid.component';
+import { UpdatedetailsComponent } from './profile/updatedetails/updatedetails.component';
 
 
 const routes: Routes = [
@@ -30,6 +33,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent,canActivate:[AuthGuard] },
   { path: 'user', component: BoardUserComponent,canActivate:[AuthGuard] },
+  { path: 'userupdate' ,component:UpdatedetailsComponent,canActivate:[AuthGuard]},
   { path: 'myorders', component:OrdersComponent,canActivate:[AuthGuard]},
   { path: 'admin', component: BoardAdminComponent,canActivate:[AuthGuard],
   children:[
@@ -43,6 +47,8 @@ const routes: Routes = [
     { path: 'addcategory', component: CreateCategoryComponent,canActivate:[AuthGuard] },
     { path: 'updatecategory/:id', component: UpdateCategoryComponent,canActivate:[AuthGuard] },
     { path: 'categorydetails/:id', component: CategoryDetailsComponent,canActivate:[AuthGuard] },
+    { path: 'customers', component: GetCustomersComponent },
+    { path: 'customerdetails/:id', component: GetbyidComponent},
   ],},
   { path: 'about', component:AboutComponent},
   { path: 'contact', component:ContactUsComponent},

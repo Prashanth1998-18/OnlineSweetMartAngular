@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { customer } from '../customer';
+import { Customerservice } from '../_services/customerdata.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
@@ -8,10 +10,15 @@ import { TokenStorageService } from '../_services/token-storage.service';
 })
 export class ProfileComponent implements OnInit {
   currentUser: any;
-
-  constructor(private token: TokenStorageService) { }
+  cust:customer=this.token.getUser();
+  name:string=this.cust.username;
+  constructor(private token: TokenStorageService,private customer:Customerservice) { }
 
   ngOnInit(): void {
-    this.currentUser = this.token.getUser();
+    console.log(this.name);
+    this.customer.getCustomerbyName(this.name).subscribe((data: any) =>{
+      console.log(data);
+      this.cust=data;
+    },(error: any) => console.log(error));
   }
 }

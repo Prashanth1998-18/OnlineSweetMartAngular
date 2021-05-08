@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardUserComponent } from './board-user/board-user.component';
+import {MatIconModule} from '@angular/material/icon';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { RouterModule } from '@angular/router';
@@ -34,6 +35,11 @@ import { CategoryListComponent } from './board-admin/category-list/category-list
 import { UpdateCategoryComponent } from './board-admin/update-category/update-category.component';
 import { CreateCategoryComponent } from './board-admin/create-category/create-category.component';
 import { SearchfilterPipeCatgeory } from './board-admin/searchfiltercategory.pipe';
+import { GetCustomersComponent } from './board-admin/get/get.component';
+import { GetbyidComponent } from './board-admin/getbyid/getbyid.component';
+import { SearchfilterPipeCustomer } from './board-admin/searchfiltercustomer.pipe';
+import { UpdatedetailsComponent } from './profile/updatedetails/updatedetails.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -60,7 +66,11 @@ import { SearchfilterPipeCatgeory } from './board-admin/searchfiltercategory.pip
     CategoryListComponent,
     UpdateCategoryComponent,
     CreateCategoryComponent,
-    SearchfilterPipeCatgeory
+    SearchfilterPipeCatgeory,
+    GetCustomersComponent,
+    GetbyidComponent,
+    SearchfilterPipeCustomer,
+    UpdatedetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +82,8 @@ import { SearchfilterPipeCatgeory } from './board-admin/searchfiltercategory.pip
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule
     
   ],
   providers: [authInterceptorProviders,AuthGuard],
