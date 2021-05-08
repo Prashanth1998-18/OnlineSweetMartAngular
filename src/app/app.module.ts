@@ -29,6 +29,11 @@ import { OrdersComponent } from './profile/orders/orders.component';
 import { SweetorderListComponent } from './board-admin/sweetorder-list/sweetorder-list.component';
 import { ViewdetailComponent } from './board-admin/viewdetail/viewdetail.component';
 import { SearchfilterPipeSweetOrder } from './board-admin/searchfilterorder.pipe';
+import { CategoryDetailsComponent } from './board-admin/category-details/category-details.component';
+import { CategoryListComponent } from './board-admin/category-list/category-list.component';
+import { UpdateCategoryComponent } from './board-admin/update-category/update-category.component';
+import { CreateCategoryComponent } from './board-admin/create-category/create-category.component';
+import { SearchfilterPipeCatgeory } from './board-admin/searchfiltercategory.pipe';
 
 @NgModule({
   declarations: [
@@ -50,7 +55,12 @@ import { SearchfilterPipeSweetOrder } from './board-admin/searchfilterorder.pipe
     OrdersComponent,
     SweetorderListComponent,
     ViewdetailComponent,
-    SearchfilterPipeSweetOrder
+    SearchfilterPipeSweetOrder,
+    CategoryDetailsComponent,
+    CategoryListComponent,
+    UpdateCategoryComponent,
+    CreateCategoryComponent,
+    SearchfilterPipeCatgeory
   ],
   imports: [
     BrowserModule,

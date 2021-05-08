@@ -18,6 +18,10 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { OrdersComponent } from './profile/orders/orders.component';
 import { SweetorderListComponent } from './board-admin/sweetorder-list/sweetorder-list.component';
 import { ViewdetailComponent } from './board-admin/viewdetail/viewdetail.component';
+import { CategoryListComponent } from './board-admin/category-list/category-list.component';
+import { CategoryDetailsComponent } from './board-admin/category-details/category-details.component';
+import { CreateCategoryComponent } from './board-admin/create-category/create-category.component';
+import { UpdateCategoryComponent } from './board-admin/update-category/update-category.component';
 
 
 const routes: Routes = [
@@ -35,6 +39,10 @@ const routes: Routes = [
     { path: 'proddetails/:id', component: ProductDetailsComponent,canActivate:[AuthGuard] },
     { path: 'sweetorder', component: SweetorderListComponent,canActivate:[AuthGuard] },
     { path: 'orderdetails/:id', component: ViewdetailComponent,canActivate:[AuthGuard] },
+    { path: 'category', component: CategoryListComponent,canActivate:[AuthGuard] },
+    { path: 'addcategory', component: CreateCategoryComponent,canActivate:[AuthGuard] },
+    { path: 'updatecategory/:id', component: UpdateCategoryComponent,canActivate:[AuthGuard] },
+    { path: 'categorydetails/:id', component: CategoryDetailsComponent,canActivate:[AuthGuard] },
   ],},
   { path: 'about', component:AboutComponent},
   { path: 'contact', component:ContactUsComponent},
