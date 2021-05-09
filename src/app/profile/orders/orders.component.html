@@ -1,7 +1,7 @@
-
+<div class="container">
 <div class="panel panel-primary">
     <div class="panel-heading">
-      <h2><b>Sweetorder List</b></h2>
+      <h1 style="text-align: center;"><b>Order History</b></h1>
       <label for="search" class="col-sm-4 col-form-label">Search</label>
 <div class="col-sm-4">
     <input type="text" [(ngModel)]="searchValue" class="form-control" id="search" placeholder="Search Single order"/>
@@ -11,10 +11,10 @@
       <table class="table table-striped">
         <thead>
         <tr>
-            <th>Id</th>
+            <th>#</th>
             <th>Date</th>
             <th>Total</th>
-            <th>Actions</th>
+            <th>Order Details</th>
        </tr>
     </thead>
     <tbody>
@@ -22,9 +22,10 @@
    <td>{{b.orderId}}</td>
    <td>{{b.date | date:"fullDate"}}</td>
    <td> {{b.totalCost | currency:"INR" }}</td>
-                <td><button (click)="SweetOrderDetails(b.orderId)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                <td><button (click)="SweetOrderDetails(b.orderId)" class="btn btn-info" style="margin-left: 10px"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
             </td>
           </tr>
        </tbody>
       </table>
   </div>
+</div>

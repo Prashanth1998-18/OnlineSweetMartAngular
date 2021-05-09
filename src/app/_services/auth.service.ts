@@ -35,6 +35,23 @@ export class AuthService {
     }, httpOptions);
   }
 
+  // For adding new customer
+  data: Object | undefined;
+ 
+  //Http Post User
+  RegisterNewUser(body:any): any{
+    console.log("inside RegisterNewUser() of RegistrationService");
+    const headers = { 
+      'content-type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    }
+    this.http.post<any>(AUTH_API+'signup',body,{'headers':headers})
+    .subscribe((data: Object | undefined) => {
+      this.data = data;
+      //this.loading = false;
+    });
+  }
+
   loggedIn():boolean{
     return sessionStorage.getItem('auth-token')!=null;
   }

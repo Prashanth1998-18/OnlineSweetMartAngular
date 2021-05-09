@@ -20,12 +20,12 @@ export class ViewOrdersdetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.sweetorder=new SweetOrder();
-    console.log("in order details");
+    //console.log("in order details");
     this.orderId=this.route.snapshot.params['id'];
-    console.log(this.orderId +" from order id")
+    //console.log(this.orderId +" from order id")
     this.sweetorderservice.getOrderById(this.orderId)
       .subscribe((data: any) => {
-        console.log(data+"from order details")
+        //console.log(data+"from order details")
         this.sweetorder = data;
       }, (error: any) => console.log(error));
 
