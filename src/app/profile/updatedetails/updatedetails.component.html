@@ -1,6 +1,4 @@
-<p>updatedetails works!</p>
-{{cust| json}}
-
+<div class ="container">
 <div style="width: 400px;">
     <form (ngSubmit)="onSubmit()">
   
@@ -11,29 +9,66 @@
   
       <div class="form-group">
         <label for="username">Name</label>
-        <input type="text" class="form-control" id="username" required [(ngModel)]="cust.username" name="username">
+        <input type="text" class="form-control" id="username" required [(ngModel)]="cust.username" name="username" #username="ngModel">
+        <div
+        *ngIf="username.invalid && (username.dirty || username.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="username.errors.required">Name is required.</div>
+        <div *ngIf="username.errors.maxlength">
+          Name cannot be more than 30 characters long.
+        </div>
+        <div *ngIf="username.errors.minlength">
+          Name must be at least 2 characters long.
+        </div>
+      </div>
       </div>
   
       <div class="form-group">
-        <label for="cust.email">Email id</label>
-        <input type="text" class="form-control" id="cust.email" required [(ngModel)]="cust.email" name="cust.email">
+        <label for="email">Email id</label>
+        <input type="email" class="form-control" id="email" required [(ngModel)]="cust.email" name="email" #email="ngModel">
+        <div
+        class="alert-danger"
+        *ngIf="email.invalid && (email.dirty || email.touched)"
+      >
+        <div *ngIf="email.errors.required">Email is required</div>
+        <div *ngIf="email.errors.email">
+          Email must be a valid email address
+        </div>
+      </div>
       </div>
   
       <div class="form-group">
         <label for="cust.address.city">City</label>
-        <input type="text" class="form-control" id="cust.address.city" required [(ngModel)]="cust.address.city" name="cust.address.city">
+        <input type="text" class="form-control" id="cust.address.city" required [(ngModel)]="cust.address.city" name="cust.address.city" #city="ngModel">
+        <div
+        class="alert-danger"
+        *ngIf="city.invalid && (city.dirty || city.touched)"
+      >
+        <div *ngIf="city.errors.required">Enter City Name</div>
+      </div>
       </div>
   
       <div class="form-group">
         <label for="cust.address.contactNo">Phone No.</label>
-        <input type="text" class="form-control" id="cust.address.contactNo" required [(ngModel)]="cust.address.contactNo" name="cust.address.contactNo">
+        <input type="text" class="form-control" id="cust.address.contactNo" required [(ngModel)]="cust.address.contactNo" name="cust.address.contactNo" #contactNo="ngModel">
+        <div class="alert-danger" *ngIf="contactNo.invalid && (contactNo.dirty || contactNo.touched)">
+          <div *ngIf="contactNo.errors.required">Enter Mobile Number</div>
+          
+        </div>
+        <div class="alert-danger" *ngIf="!isNum">Enter a proper contact number</div>
       </div>
   
       <div class="form-group">
         <label for="cust.address.zip">Zip - Code</label>
-        <input type="text" class="form-control" id="cust.address.zip" required [(ngModel)]="cust.address.zip" name="cust.address.zip">
+        <input type="text" class="form-control" id="cust.address.zip" required [(ngModel)]="cust.address.zip" name="cust.address.zip" #zip="ngModel">
+        <div class="alert-danger" *ngIf="zip.invalid && (zip.dirty || zip.touched)">
+          <div *ngIf="zip.errors.required">Enter ZIP CODE</div>
+        </div>
+        <div class="alert-danger" *ngIf="!isZip">Enter proper Zip Code</div>
       </div>
   
       <button type="submit" class="btn btn-success">Submit</button>
     </form>
   </div>
+</div>

@@ -14,7 +14,9 @@ export class UpdatedetailsComponent implements OnInit {
   constructor(private token: TokenStorageService,private customer:Customerservice,private router: Router) { }
   cust:customer=this.token.getUser();
   name:string=this.cust.username;
- 
+  isNum=true;
+  isZip=true;
+  isName=true;
   // id1:number=this.id + 1;
   // cust1!: customer;
 
@@ -35,8 +37,12 @@ export class UpdatedetailsComponent implements OnInit {
   }
 
   onSubmit() {
+   this.isNum = /^\d+$/.test(this.cust.address.contactNo);
+   this.isZip=/^\d+$/.test(this.cust.address.zip);
+    if(this.isNum && this.isZip){
     this.updatedetails();
     this.gotoProfile();
+    }
   }
 
   gotoProfile(){
