@@ -1,37 +1,37 @@
 <h3>Update Product</h3>
 <div style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-
-    <div class="form-group">
-        <label for="prodId">Product Id</label>
-        <input type="text" class="form-control" id="prodId" required [(ngModel)]="product.prodId" name="prodId">
-      </div>
+  <form name="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
 
     <div class="form-group">
       <label for="prodName">Product Name</label>
-      <input type="text" class="form-control" id="prodName" required [(ngModel)]="product.prodName" name="prodName">
+      <input type="text" class="form-control" id="prodName" formControlName="prodName" required [(ngModel)]="product.prodName" name="prodName">
+      <span class="error" *ngIf="prodName.invalid && prodName.touched">Product Name is required.</span>
     </div>
 
     <div class="form-group">
       <label for="prodPrice">Product Price</label>
-      <input type="text" class="form-control" id="prodPrice" required [(ngModel)]="product.prodPrice" name="prodPrice">
+      <input type="text" class="form-control" id="prodPrice" formControlName="prodPrice" required [(ngModel)]="product.prodPrice" name="prodPrice">
+      <div *ngIf="prodPrice.invalid && prodPrice.touched">
+        <span class="error" *ngIf="prodPrice.errors.required">Product Price is required.</span>
+        <span class="error" *ngIf="prodPrice.errors.pattern">Price can be only numbers.</span>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="expDate">Product Expiry</label>
-      <input type="text" class="form-control" id="expDate" required [(ngModel)]="product.expDate" name="expDate">
+      <input type="text" class="form-control" id="expDate" formControlName="expDate" required [(ngModel)]="product.expDate" name="expDate">
+      <span class="error" *ngIf="expDate.invalid && expDate.touched">Expiry Date is required.</span>
     </div>
 
     <div class="form-group">
       <label for="category.categoryId">Category Id</label>
-      <input type="text" class="form-control" id="category.categoryId" required [(ngModel)]="product.category.categoryId" name="category.categoryId">
+      <input type="text" class="form-control" id="category.categoryId" formControlName="categoryId" required [(ngModel)]="product.category.categoryId" name="category.categoryId">
+      <div *ngIf="categoryId.invalid && categoryId.touched">
+        <span class="error" *ngIf="categoryId.errors.required">Category Id is required.</span>
+        <span class="error" *ngIf="categoryId.errors.pattern">Id can only be a number.</span>
+        </div>
     </div>
 
-    <div class="form-group">
-      <label for="category.name">Category Name</label>
-      <input type="text" class="form-control" id="category" required [(ngModel)]="product.category.name" name="category.name">
-    </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success" [disabled]="!form.valid">Submit</button>
   </form>
 </div>

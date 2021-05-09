@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Product } from '../../Product';
 import { ProductService } from '../../_services/product.service';
@@ -11,6 +12,18 @@ export class UpdateProductComponent implements OnInit {
 
   id!: number;
   product: Product = new Product;
+
+  form = new FormGroup({
+    prodName: new FormControl('', Validators.required),
+    prodPrice: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+    expDate: new FormControl('', Validators.required),
+    categoryId: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+  });
+
+  get prodName(){return this.form.get('prodName')}
+  get prodPrice(){return this.form.get('prodPrice')}
+  get expDate(){return this.form.get('expDate')}
+  get categoryId(){return this.form.get('categoryId')}
 
   constructor(private route: ActivatedRoute,private router: Router,private productService: ProductService) { }
 

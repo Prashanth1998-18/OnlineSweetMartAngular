@@ -1,6 +1,6 @@
 <hr>
-<div [hidden]="submitted" style="width: 400px; height:auto">
-  <form (ngSubmit)="save()">
+<div style="width: 400px; height:auto">
+  <form name="form" [formGroup]="form" (ngSubmit)="form.valid && save()">
     
     <!-- <div class="form-group">
       <label for="prodId">Product Id</label>
@@ -9,28 +9,34 @@
 
     <div class="form-group">
       <label for="prodName">Product Name</label>
-      <input type="text" class="form-control" id="prodName" required [(ngModel)]="product.prodName" name="prodName">
+      <input type="text" class="form-control" id="prodName" formControlName="prodName" required [(ngModel)]="product.prodName" name="prodName">
+      <span class="error" *ngIf="prodName.invalid && prodName.touched">Product Name is required.</span>
     </div>
 
     <div class="form-group">
       <label for="prodPrice">Product Price</label>
-      <input type="text" class="form-control" id="prodPrice" required [(ngModel)]="product.prodPrice" name="prodPrice">
+      <input type="text" class="form-control" id="prodPrice" formControlName="prodPrice" required [(ngModel)]="product.prodPrice" name="prodPrice">
+      <div *ngIf="prodPrice.invalid && prodPrice.touched">
+        <span class="error" *ngIf="prodPrice.errors.required">Product Price is required.</span>
+        <span class="error" *ngIf="prodPrice.errors.pattern">Price can be only numbers.</span>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="expDate">Product Expiry</label>
-      <input type="text" class="form-control" id="expDate" required [(ngModel)]="product.expDate" name="expDate">
+      <input type="text" class="form-control" id="expDate" formControlName="expDate" required [(ngModel)]="product.expDate" name="expDate">
+      <span class="error" *ngIf="expDate.invalid && expDate.touched">Expiry Date is required.</span>
     </div>
 
     <div class="form-group">
-      <label for="product.category.categoryId">Product Category</label>
-      <input type="text" class="form-control" id="product.category.categoryId" required [(ngModel)]="product.category.categoryId" name="product.category.categoryId">
+      <label for="product.category.categoryId">Product's CategoryId</label>
+      <input type="text" class="form-control" id="product.category.categoryId" formControlName="categoryId" required [(ngModel)]="product.category.categoryId" name="product.category.categoryId">
+      <div *ngIf="categoryId.invalid && categoryId.touched">
+        <span class="error" *ngIf="categoryId.errors.required">Product's CategoryId is required.</span>
+        <span class="error" *ngIf="categoryId.errors.pattern">Id can only be a number.</span>
+        </div>
     </div>
 
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success" [disabled]="!form.valid">Submit</button>
   </form>
-</div>
-
-<div *ngIf="submitted">
-  <h4>You submitted successfully!</h4>
 </div>
