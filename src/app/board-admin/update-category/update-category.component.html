@@ -14,7 +14,7 @@
     <div class="form-group">
       <label for="name">Category Name<sup>*</sup></label>
       <input type="text" class="form-control" id="name" formControlName="name" required [(ngModel)]="category.name" name="name">
-      <span class="error" *ngIf="name.invalid && prodName.touched">Category Name is required.</span>
+      <span class="error" *ngIf="name.invalid && name.touched">Category Name is required.</span>
     </div>
 
     <button type="submit" [disabled]="!form.valid" class="btn btn-success">Submit</button>

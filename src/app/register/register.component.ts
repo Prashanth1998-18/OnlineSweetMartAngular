@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
     contactNo: null,
     zip:null,
   };
+  confirmPassword:string;
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
@@ -42,6 +43,7 @@ export class RegisterComponent implements OnInit {
    const { username, email, password,city,contactNo,zip } = this.form;
     // const data=JSON.stringify(this.registrationform.value);
     // console.log()
+    if(this.confirmPassword == password){
     this.authService.register(username, email, password, city, contactNo, zip).subscribe(
       data => {
         console.log(data);
@@ -53,7 +55,12 @@ export class RegisterComponent implements OnInit {
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
       }
-    );
+    );}
+    else
+    { 
+      this.isSignUpFailed=true;
+      this.errorMessage = "Passwords dont Match"
+    }
   }
 
   gotoLogin(){
