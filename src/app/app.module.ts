@@ -40,6 +40,7 @@ import { GetbyidComponent } from './board-admin/getbyid/getbyid.component';
 import { SearchfilterPipeCustomer } from './board-admin/searchfiltercustomer.pipe';
 import { UpdatedetailsComponent } from './profile/updatedetails/updatedetails.component';
 import { MatButtonModule } from '@angular/material/button';
+import { ViewOrdersdetailComponent } from './profile/viewdetail/viewdetail.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { MatButtonModule } from '@angular/material/button';
     GetbyidComponent,
     SearchfilterPipeCustomer,
     UpdatedetailsComponent,
+    ViewOrdersdetailComponent
   ],
   imports: [
     BrowserModule,

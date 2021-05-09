@@ -25,6 +25,8 @@ import { UpdateCategoryComponent } from './board-admin/update-category/update-ca
 import { GetCustomersComponent } from './board-admin/get/get.component';
 import { GetbyidComponent } from './board-admin/getbyid/getbyid.component';
 import { UpdatedetailsComponent } from './profile/updatedetails/updatedetails.component';
+import { ViewOrdersdetailComponent } from './profile/viewdetail/viewdetail.component';
+
 
 
 const routes: Routes = [
@@ -32,7 +34,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent,canActivate:[AuthGuard] },
-  { path: 'user', component: BoardUserComponent,canActivate:[AuthGuard] },
+  { path: 'user', component: BoardUserComponent,canActivate:[AuthGuard]},
+      {path:'orders/:id',component:ViewOrdersdetailComponent,canActivate:[AuthGuard] },
   { path: 'userupdate' ,component:UpdatedetailsComponent,canActivate:[AuthGuard]},
   { path: 'myorders', component:OrdersComponent,canActivate:[AuthGuard]},
   { path: 'admin', component: BoardAdminComponent,canActivate:[AuthGuard],
