@@ -1,0 +1,10 @@
+.bg{
+    background-image: url('https://www.stkconf.org/wp-content/uploads/2018/10/Web-Page-Background-Color.jpg');
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  margin-top: 10px;
+  /* margin-bottom: 5px; */
+   height:100%;
+  width:100%; 
+}
