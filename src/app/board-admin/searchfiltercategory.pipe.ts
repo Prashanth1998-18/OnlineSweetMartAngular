@@ -13,7 +13,7 @@ export class SearchfilterPipeCatgeory implements PipeTransform {
       return categoryList;
     }
     return categoryList.filter(category =>
-      category.categoryId.toString().toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()));
+      category.name.toString().toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()));
   }
 
 }
