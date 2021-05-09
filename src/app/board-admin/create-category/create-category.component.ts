@@ -1,55 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-// import { Router } from '@angular/router';
-// import { Product } from '../product';
-// import { ProductService } from '../product.service';
-
-// @Component({
-//   selector: 'app-create-product',
-//   templateUrl: './create-product.component.html',
-//   styleUrls: ['./create-product.component.css']
-// })
-// export class CreateProductComponent implements OnInit {
-
-//   product: Product;
-//   submitted=false;
-
-//   constructor(private productService: ProductService, private router: Router) { 
-//     this.product=new Product();
-//   }
-
-//   ngOnInit() {
-//   }
-
-//   // newProduct(): void{
-//   //   this.submitted=false;
-//   //   // this.product=new Product();
-    
-//   // }
-
-//   // save()
-//   // {
-//   //   this.productService.createProduct(this.product).subscribe((data: any) => {
-//   //     console.log(data) 
-//   //     this.product=new Product();
-//   //     this.gotoList();
-//   //   },
-//   //     (error: any) => console.log(error)
-//   //   );
-//   // }
-
-//   onSubmit() {
-//     this.submitted = true;
-//     this.productService.createProduct(this.product).subscribe((data => this.gotoList()),
-//       (error: any) => console.log(error)
-//     );
-//   }
-
-//   gotoList() {
-//     this.router.navigate(['/product']);
-//   }
-
-// }
-
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -64,10 +12,11 @@ import { CategoryService } from '../../_services/category.service';
 export class CreateCategoryComponent implements OnInit {
  
   form = new FormGroup({
-    categoryId: new FormControl('',[Validators.required]),
-    name: new FormControl('',Validators.required)
+    categoryId: new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
+    name: new FormControl('',Validators.required),
   })
-
+  get categoryId(){return this.form.get('categoryId')}
+  get name(){return this.form.get('name')}
 
   category: any={
     categoryId:'',

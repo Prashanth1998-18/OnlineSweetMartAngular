@@ -12,21 +12,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class UpdateCategoryComponent implements OnInit {
 
   id!: number;
-  // category: Category = new Category;
+  category: Category = new Category;
 
   
   form = new FormGroup({
-    categoryId: new FormControl('',Validators.required),
-    name: new FormControl('',Validators.required)
-  })
-
-
-  category: any={
-    categoryId:'',
-    name:''
-  }
-
-
+    categoryId: new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
+    name: new FormControl('',Validators.required),
+  });
+  get name(){return this.form.get('name')}
+  get categoryId(){return this.form.get('categoryId')}
 
   constructor(private route: ActivatedRoute,private router: Router,private categoryService: CategoryService) { }
 

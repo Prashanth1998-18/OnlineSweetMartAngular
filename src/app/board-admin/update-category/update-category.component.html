@@ -1,21 +1,22 @@
 <h3>Update Category</h3>
 <div style="width: 400px;">
-  <form (ngSubmit)="onSubmit()"  #myForm="ngForm">
+  <form name="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
 
     <div class="form-group">
         <label for="categoryId">Category Id<sup>*</sup></label>
-        <input type="text" class="form-control" id="categoryId" required [(ngModel)]="category.categoryId" name="categoryId">
+        <input type="text" class="form-control" id="categoryId" formControlName="categoryId" required [(ngModel)]="category.categoryId" name="categoryId">
+        <div *ngIf="categoryId.invalid && categoryId.touched">
+          <span class="error" *ngIf="categoryId.errors.required">Category Id is required.</span>
+          <span class="error" *ngIf="categoryId.errors.pattern">Id can only be a number.</span>
+        </div>
       </div>
 
     <div class="form-group">
       <label for="name">Category Name<sup>*</sup></label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="category.name" name="name">
-      
-      
+      <input type="text" class="form-control" id="name" formControlName="name" required [(ngModel)]="category.name" name="name">
+      <span class="error" *ngIf="name.invalid && prodName.touched">Category Name is required.</span>
     </div>
-    <p>Fields with * are Mandatory</p>
-    
 
-    <button type="submit" [disabled]="!myForm.form.valid"  class="btn btn-success">Submit</button>
+    <button type="submit" [disabled]="!form.valid" class="btn btn-success">Submit</button>
   </form>
 </div>

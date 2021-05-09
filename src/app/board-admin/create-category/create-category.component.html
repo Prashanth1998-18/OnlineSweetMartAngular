@@ -1,23 +1,24 @@
 <h3>Create Product</h3>
 
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="save()" #myForm="ngForm">
+<div style="width: 400px;">
+  <form name="form" [formGroup]="form" (ngSubmit)="form.valid && save()">
     
     <div class="form-group">
-      <label for="categoryId">category Id<sup>*</sup></label>
-      <input type="text" class="form-control" id="categoryId" required [(ngModel)]="category.categoryId" name="categoryId">
+      <label for="categoryId">Category Id<sup>*</sup></label>
+      <input type="text" class="form-control" id="categoryId" formControlName="categoryId" required [(ngModel)]="category.categoryId" name="categoryId">
+      <div *ngIf="categoryId.invalid && categoryId.touched">
+        <span class="error" *ngIf="categoryId.errors.required">Category Id is required.</span>
+        <span class="error" *ngIf="categoryId.errors.pattern">Id can only be a number.</span>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="name">Category Name<sup>*</sup></label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="category.name" name="name">
+      <input type="text" class="form-control" id="name" formControlName="name" required [(ngModel)]="category.name" name="name">
+      <span class="error" *ngIf="name.invalid && name.touched">Category Name is required.</span>
      </div>
-     <p>Fields with * are mandatory</p>
       
-  <button type="submit" [disabled]="!myForm.form.valid" class="btn btn-success">Submit</button>
+  <button type="submit" [disabled]="!form.valid" class="btn btn-success">Submit</button>
   </form>
 </div>
 
-<div *ngIf="submitted">
-  <h4>You submitted successfully!</h4>
-</div>
