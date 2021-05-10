@@ -1,13 +1,14 @@
-<div class="sidebar">
+<!-- <div class="sidebar">
   <div *ngFor="let p of "></div>
-</div>
+</div> -->
+<div class="container">
 <div class='card'>
   <div class='card-header'>
     {{pageTitle}}
   </div>
   <div class='card-body'>
     <div class='row'>
-      <div class='column col-md-1'>Filter by:</div>
+      <div class='column col-md-2'><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search :</div>
       <div class='column'>
         <input type='text' [(ngModel)]='listFilter' />
       </div>
@@ -17,26 +18,35 @@
         <h4>Search: {{listFilter}}</h4>
       </div>
     </div>
-    <div class="row" style="align-items: center;" >
+    <div class="row" >
+     
       <div *ngFor='let p of filteredProducts'>
+        <!-- <div class="col-6"> -->
         <div class="card" style="padding:10px; margin:10px; ">
-          <div class="column">
+          <div class="row">
+            <div class="col-6">
             <a [routerLink]="['/products', p.prodId]">
-              <img src="./assets/{{p.prodName}}.jpg" [style.width.px]='imageWidth' [style.margin.px]='imageMargin'
-                [style.height.px]='imageHeight'></a>
-          <br>
+              <img src="./assets/{{p.prodName}}.jpg" [style.width.px]='imageWidth' [style.height.px]='imageHeight' style="margin-left: 50px;"></a>
+              </div>
+              <div class="col-6" style="margin-top: 50px;">
             <!-- <input type="checkbox" value="{{p.prodName}}" /> -->
+            <p>{{p.prodPrice | currency:"INR" :'symbol':'1.2-2'}}</p>
             <a [routerLink]="['/products', p.prodId]">
-              {{ p.prodName }}</a><br>
+              {{ p.prodName }}</a>
+              <br>
+              <br>
               <button class='btn btn-primary'
                         (click)='addToOrder(p)' id={{p.prodId}}  value="{{p.prodName}}">
                   Add to Cart
               </button>
+            </div>
           </div>
         </div>
-      </div>
+      <!-- </div> -->
+    </div>
     </div>
   </div>
+</div>
 </div>
 <div *ngIf='errorMessage' class='alert alert-danger'>
   Error: {{ errorMessage }}

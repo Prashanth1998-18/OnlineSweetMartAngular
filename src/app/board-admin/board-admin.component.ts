@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../board-user/customer.service';
 import { customer } from '../customer';
-import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-board-admin',

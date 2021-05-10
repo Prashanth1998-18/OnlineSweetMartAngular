@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { customer } from '../customer';
-import { UserService } from '../_services/user.service';
 import { CustomerService } from './customer.service';
 
 
@@ -12,17 +11,9 @@ import { CustomerService } from './customer.service';
 export class BoardUserComponent {
   content?: string;
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.userService.getUserBoard().subscribe(
-      (      data: string | undefined) => {
-        this.content = data;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
   }
 
  

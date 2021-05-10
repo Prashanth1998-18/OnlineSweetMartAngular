@@ -13,7 +13,7 @@ export class UserProductListComponent implements OnInit, OnDestroy {
   pageTitle = 'Product List';
   imageWidth = 300;
   imageHeight= 300;
-  imageMargin = 2;
+ // imageMargin = 50;
   showButton = false;
   errorMessage = '';
   sub!: Subscription;

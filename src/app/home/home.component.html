@@ -38,27 +38,47 @@
     <h1>Tailored Jeans</h1>
     <p class="price">$19.99</p>
     <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-    <p><button>Add to Cart</button></p>
+    <p><button  (click) ="navigateToLogin()">Add to Cart</button></p>
   </div>
   <div class="card">
     <img src="../assets/sweet1.jpg" alt="Denim Jeans" style="width:100%">
     <h1>Tailored Jeans</h1>
     <p class="price">$19.99</p>
     <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-    <p><button>Add to Cart</button></p>
+    <p><button  (click) ="navigateToLogin()">Add to Cart</button></p>
   </div>
    <div class="card">
     <img src="../assets/sweet1.jpg" alt="Denim Jeans" style="width:100%">
     <h1>Tailored Jeans</h1>
     <p class="price">$19.99</p>
     <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-    <p><button>Add to Cart</button></p>
+    <p><button  (click) ="navigateToLogin()">Add to Cart</button></p>
   </div>
   <div class="card">
     <img src="../assets/sweet1.jpg" alt="Denim Jeans" style="width:100%">
     <h1>Tailored Jeans</h1>
     <p class="price">$19.99</p>
     <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-    <p><button>Add to Cart</button></p>
+    <p><button (click) ="navigateToLogin()">Add to Cart</button></p>
   </div>
-</div>
+</div> 
+
+<!-- <div class="row" style="align-items: center;" >
+  <div *ngFor='let p of filteredProducts'>
+    <div class="card" style="padding:10px; margin:10px; ">
+      <div class="column">
+        <a [routerLink]="['/products', p.prodId]">
+          <img src="./assets/{{p.prodName}}.jpg" [style.width.px]='imageWidth' [style.margin.px]='imageMargin'
+            [style.height.px]='imageHeight'></a>
+      <br>
+        <input type="checkbox" value="{{p.prodName}}" />
+        <a [routerLink]="['/products', p.prodId]">
+          {{ p.prodName }}</a><br>
+          <button class='btn btn-primary'
+                    (click)='addToOrder(p)' id={{p.prodId}}  value="{{p.prodName}}">
+              Add to Cart
+          </button>
+      </div>
+    </div>
+  </div>
+</div> -->

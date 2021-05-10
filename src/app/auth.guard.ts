@@ -16,7 +16,7 @@ canActivate(): boolean{
       return true;
     }
     else{
-      this.router.navigate(['404']);
+      this.router.navigate(['login']);
       return false;
     }
 }
