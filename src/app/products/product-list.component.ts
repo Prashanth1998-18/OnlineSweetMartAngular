@@ -4,6 +4,7 @@ import { Product } from '../Product';
 import { ProductService } from './product.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Category } from '../category';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './product-list.component.html',
@@ -34,7 +35,7 @@ export class UserProductListComponent implements OnInit, OnDestroy {
   items: Product[] = [];
   cats:Category[]=[];
 
-  constructor(private productService: ProductService, private _snackBar: MatSnackBar) {}
+  constructor(private productService: ProductService, private _snackBar: MatSnackBar,private router: Router) {}
 
   performFilter(filterBy: string): Product[] {
     filterBy = filterBy.toLocaleLowerCase();
@@ -74,6 +75,10 @@ export class UserProductListComponent implements OnInit, OnDestroy {
     this._snackBar.open(`You added:${prod.prodName}`,"",{duration:2500,verticalPosition:'top'});}
     else{
       this._snackBar.open(`You cannot add:${prod.prodName} more than once`,"",{duration:2500,verticalPosition:'top'});}
+    }
+
+    gotoCart(){
+      this.router.navigate(['/cart']);
     }
   }
 
