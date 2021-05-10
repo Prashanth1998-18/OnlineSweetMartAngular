@@ -18,7 +18,7 @@
 </table>
 </div>
 </div> -->
-
+<!-- 
 <div class="container">
   <div class="row">
       <div class="col-sm-12 col-md-10 col-md-offset-1">
@@ -50,15 +50,15 @@
                     <button type="button" class="btn btn-danger">
                         <span class="glyphicon glyphicon-remove" >
                         <!-- (click)='removeFromCart(p)'>-->
-                  </span> Remove
+                  <!-- </span> Remove
                     </button></td>
                 </tr>
                 <tr>
                   <td>   </td>
                   <td>   </td>
                   <td><h3>Total {{totalcartvalue}}</h3></td>
-                  <!-- <td class="text-right"><h3><strong>{{Total}}</strong></h3></td> -->
-              </tr>
+                  <td class="text-right"><h3><strong>{{Total}}</strong></h3></td> -->
+              <!-- </tr>
               <tr>
                 <td>   </td>
                 <td>   </td>
@@ -68,4 +68,108 @@
           </table>
           </div>
           </div>
+          </div> -->
+
+
+<!-- <div class="container">
+  <div class="row">
+    <h1>Items in your Bag</h1>
+  </div>
+  <hr>
+  <div *ngFor="let p of prodList">
+  <div class="row">
+    <div class="col-3">
+      <img src="./assets/{{p.prodName}}.jpg" alt="{{p.prodName}}" height="30%" width="auto" style="border-radius: 10px; margin-left:20px; margin-top: 20px;">
+    </div>
+    <div class="col-9">
+        <div class="row">{{p.prodName | titlecase}}</div>
+        <hr>
+
+    </div>
+  </div>
+</div>
+</div> -->
+
+<div class="container mb-4">
+  <div class="row">
+    <h1>Items in your Bag</h1>
+  </div>
+  <div class="row">
+      <div class="col-12">
+          <div class="table-responsive">
+              <table class="table table-striped">
+                  <thead>
+                      <tr>
+                          <th scope="col-3"> </th>
+                          <th scope="col-3">Product</th>
+                          <th scope="col-3">Available</th>
+                          <!-- <th scope="col" class="text-center">Quantity</th> -->
+                          <th scope="col-3" class="text-right">Price</th>
+                          <th> </th>
+                      </tr>
+                  </thead>
+                  <tbody >
+                      <tr *ngFor="let p of prodList">
+                          <td><img src="./assets/{{p.prodName}}.jpg" height="80px" width="80px" style="border-radius: 10px;"/> </td>
+                          <td style="margin-top: 50%;">{{p.prodName}}</td>
+                          <td>In stock</td>
+                          <!-- <td style="text-align: center;">1</td> -->
+                          <td class="text-right">{{p.prodPrice | currency:"INR" :'symbol':'1.2-2'}}</td>
+                          <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                      </tr>
+                      <!-- <tr>
+                          <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+                          <td>Product Name Toto</td>
+                          <td>In stock</td>
+                          <td><input class="form-control" type="text" value="1" /></td>
+                          <td class="text-right">33,90 €</td>
+                          <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                      </tr>
+                      <tr>
+                          <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+                          <td>Product Name Titi</td>
+                          <td>In stock</td>
+                          <td><input class="form-control" type="text" value="1" /></td>
+                          <td class="text-right">70,00 €</td>
+                          <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                      </tr> -->
+                      <!-- <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>Sub-Total</td>
+                          <td class="text-right">255,90 €</td>
+                      </tr>
+                      <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>Shipping</td>
+                          <td class="text-right">6,90 €</td>
+                      </tr> -->
+                      <tr>
+                          <td></td>
+                          <td></td>
+                          <!-- <td></td> -->
+                          <td></td>
+                          <td><strong>Total</strong></td>
+                          <td class="text-right"><strong>{{totalcartvalue | currency:"INR"}}</strong></td>
+                      </tr>
+                  </tbody>
+              </table>
           </div>
+      </div>
+      <div class="col mb-2">
+          <div class="row">
+              <div class="col-sm-12  col-md-10">
+                  <!-- <button  class="btn btn-block btn-light">Continue Shopping</button> -->
+              </div>
+              <div class="col-sm-12 col-md-2 text-right">
+                  <button (click)="placeOrder()" class="btn btn-lg btn-info btn-block">Place Order</button>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
