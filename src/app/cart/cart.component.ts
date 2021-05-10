@@ -6,7 +6,10 @@ import { SweetOrder } from '../SweetOrder';
 import { CartService } from './cart.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { Customerservice } from '../_services/customerdata.service';
+import { Router } from '@angular/router';
 //import { window } from 'rxjs/operators';
+
+
 
 @Component({
   selector: 'pm-cart',
@@ -16,7 +19,7 @@ import { Customerservice } from '../_services/customerdata.service';
 export class CartComponent implements OnInit {
 
   //prodList=window.sessionStorage.getItem('cart')
-  constructor(private cart:CartService,private sweetService:SweetorderService,private token: TokenStorageService,private customer:Customerservice) { 
+  constructor(private cart:CartService,private sweetService:SweetorderService,private token: TokenStorageService,private customer:Customerservice,private router: Router) { 
     console.log(window.sessionStorage.getItem('cart'));
       
     // this.add(this.prodList);
@@ -53,6 +56,8 @@ export class CartComponent implements OnInit {
     this.cart.createSweetOrder(this.cust1,this.prodList).subscribe((data:any)=>{
       console.log(data);
     });
+      window.sessionStorage.removeItem('cart');
+      this.router.navigate(['/myorders']);
   //  console.log(this.prodList);
   //  console.log(this.prodList2);
   //   this.order={
