@@ -32,7 +32,7 @@
             <!-- <input type="checkbox" value="{{p.prodName}}" /> -->
             <p>{{p.prodPrice | currency:"INR" :'symbol':'1.2-2'}}</p>
             <a [routerLink]="['/products', p.prodId]">
-              {{ p.prodName }}</a>
+              {{ p.prodName | titlecase }}</a>
               <br>
               <br>
               <button class='btn btn-primary'
