@@ -11,18 +11,18 @@
       <table class="table table-striped">
         <thead>
         <tr>
-            <th>#</th>
-            <th>Date</th>
-            <th>Total</th>
-            <th>Order Details</th>
+            <th style="text-align: center;">#</th>
+            <th style="text-align: center;">Date</th>
+            <th style="text-align: center;">Total</th>
+            <th style="text-align: center;">Order Details</th>
        </tr>
     </thead>
     <tbody>
  <tr *ngFor="let b of cust.sweetOrders | searchfilterorder:searchValue">
-   <td>{{b.orderId}}</td>
-   <td>{{b.date | date:"fullDate"}}</td>
-   <td> {{b.totalCost | currency:"INR" }}</td>
-                <td><button (click)="SweetOrderDetails(b.orderId)" class="btn btn-info" style="margin-left: 10px"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
+   <td style="text-align: center;">{{b.orderId}}</td>
+   <td style="text-align: center;">{{b.date | date:"fullDate"}}</td>
+   <td style="text-align: center;"> {{b.totalCost | currency:"INR" }}</td>
+                <td style="text-align: center;"><button (click)="SweetOrderDetails(b.orderId)" class="btn btn-info" style="margin-left: 10px"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Details</button>
             </td>
           </tr>
        </tbody>

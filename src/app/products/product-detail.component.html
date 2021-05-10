@@ -1,4 +1,4 @@
-<div class=''card>
+<!-- <div class=''card>
   <div class='card-header'>
     {{pageTitle + ': ' + product?.prodName}}
   </div>
@@ -55,4 +55,59 @@
       <i class='fa fa-chevron-left'></i> Back
     </button>
   </div>
+</div> -->
+<h2>Product Details</h2> 
+<hr/>
+
+<div *ngIf="product">
+
+  <div class="row">
+
+  <div class="col">
+
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item"><b>Product Id: </b></li>
+      <li class="list-group-item">{{product.prodId}}</li>
+    </ul>
+    <br>  
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item"><b>Product Name: </b></li>
+      <li class="list-group-item">{{product.prodName}}</li>
+    </ul>
+    <br>  
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item"><b>Product Price: </b></li>
+      <li class="list-group-item">{{product.prodPrice | currency:'INR'}}</li>
+    </ul>
+    <br>  
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item"><b>Product Expiry: </b></li>
+      <li class="list-group-item">{{product.expDate}}</li>
+    </ul>
+    <br>  
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item"><b>Category Id: </b></li>
+      <li class="list-group-item">{{product.category.categoryId}}</li>
+    </ul>
+    <br>  
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item"><b>Category Name: </b></li>
+      <li class="list-group-item">{{product.category.name}}</li>
+    </ul>
+    <br>  
+  </div>
+  
+
+  <div class="col">
+    <div class="card" style="width: 28rem;">
+      <img src='./assets/{{product.prodName}}.jpg' class="card-img-top">
+    </div>
+  </div>
+
+  </div>
+
 </div>
+
+<br>
+<br>
+<button (click)="onBack()" class="btn btn-primary">Back to Product List</button><br>

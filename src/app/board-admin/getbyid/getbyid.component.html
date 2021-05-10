@@ -1,31 +1,97 @@
+
+
+
+
 <h2>Customer Details</h2> 
 
 <hr/>
 <div *ngIf="customer">
-    <div>
-        <label><b>User Id: </b></label> {{customer.id}}
-      </div>  
-  <div>
-    <label><b>User Name: </b></label> {{customer.username}}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        <label><b>User Id </b></label>
+      </div>
+      <div class="col-sm-2">
+        <label><b>:</b></label>
+      </div>
+      <div class="col-sm-2">
+      {{customer.id}}
+      </div> 
+
+      <br>
+
+      <div class="row">
+      <div class="col-sm-2">
+        <label><b>User Name </b></label>
+      </div>
+      <div class="col-sm-2">
+        <label><b> :</b></label>
+      </div>
+      <div class="col-sm-2">
+      {{customer.username}}
+      </div> 
+      </div>
+
+  <br>
+
+      <div class="row">
+      <div class="col-sm-2">
+      <label><b>Email</b></label>
+      </div>
+      <div class="col-sm-2">
+      <label><b> :</b></label>
+      </div>
+     <div class="col-sm-2">
+     {{customer.email}}
+     </div> 
+      </div>
+ 
+  <br>
+     <div class="row">
+     <div class="col-sm-2">
+      <label><b>Contact No</b></label>
+    </div>
+    <div class="col-sm-2">
+      <label><b> :</b></label>
+    </div>
+  <div class="col-sm-2">
+    {{customer.address.contactNo}}
+    </div> 
   </div>
-  <div>
-    <label><b>Email: </b></label> {{customer.email}}
+   
+  <br>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <label><b>City</b></label>
+    </div>
+    <div class="col-sm-2">
+      <label><b> :</b></label>
+    </div>
+  <div class="col-sm-2">
+    {{customer.address.city}}
+    </div> 
   </div>
-  <div>
-    <label><b>Contact No: </b></label> {{customer.address.contactNo}}
-  </div>  
-  <div>
-    <label><b>City: </b></label> {{customer.address.city}}
-  </div>  
-  <div>
-    <label><b>Zip: </b></label> {{customer.address.zip}}
-  </div>  
+   
+    
+  <br>
+  <div class="row">
+  <div class="col-sm-2">
+    <label><b>Zip</b></label>
+  </div>
+  <div class="col-sm-2">
+    <label><b> :</b></label>
+  </div>
+<div class="col-sm-2">
+  {{customer.address.zip}}
+  </div> 
+</div>
+    </div>
+   
+  <br>
 </div>
 <!-- <button (click)="getCustomerbyId()" class="btn btn-danger">Get customer</button> -->
 <br>
 <button (click)="list()" class="btn btn-primary">Back to Customer List</button><br>
 <br>
 <br>
-
-
-

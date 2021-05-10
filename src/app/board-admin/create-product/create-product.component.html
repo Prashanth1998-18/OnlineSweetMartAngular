@@ -14,7 +14,7 @@
     </div>
 
     <div class="form-group">
-      <label for="prodPrice">Product Price</label>
+      <label for="prodPrice">Product Price(₹)</label>
       <input type="text" class="form-control" id="prodPrice" formControlName="prodPrice" required [(ngModel)]="product.prodPrice" name="prodPrice">
       <div *ngIf="prodPrice.invalid && prodPrice.touched">
         <span class="error" *ngIf="prodPrice.errors.required">Product Price is required.</span>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="form-group">
-      <label for="expDate">Product Expiry</label>
+      <label for="expDate">Product Expiry("yyyy-mm-dd")</label>
       <input type="text" class="form-control" id="expDate" formControlName="expDate" required [(ngModel)]="product.expDate" name="expDate">
       <span class="error" *ngIf="expDate.invalid && expDate.touched">Expiry Date is required.</span>
     </div>
