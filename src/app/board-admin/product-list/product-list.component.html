@@ -28,7 +28,7 @@
           <tr *ngFor="let p of products | searchfilterproduct:searchValue">
             <td>{{p.prodId}}</td>
             <td>{{p.prodName}}</td>
-            <td>{{p.prodPrice}}</td>
+            <td>{{p.prodPrice | currency:'INR'}}</td>
             <td>{{p.expDate}}</td>
             <td>{{p.category.name}}</td>
             <td><button (click)="deleteProduct(p.prodId)" class="btn btn-danger">Delete</button>
