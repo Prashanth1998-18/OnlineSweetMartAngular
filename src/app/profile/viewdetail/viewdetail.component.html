@@ -23,7 +23,7 @@
   <tr *ngFor="let p of sweetorder.prodList">
     <td>{{p.prodId}}</td>
     <td>{{p.prodName}}</td>
-    <td>{{p.prodPrice}}</td>
+    <td>{{p.prodPrice | currency:"INR" :'symbol':'1.2-2'}}</td>
   </tr>
 </table>
 </div>
