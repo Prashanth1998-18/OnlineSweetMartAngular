@@ -31,7 +31,7 @@ export class CategoryDetailsComponent implements OnInit {
 
   list()
   {
-    this.router.navigate(['category']);
+    this.router.navigate(['admin/category']);
   }
 
 }
