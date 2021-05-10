@@ -104,7 +104,7 @@
                           <th scope="col-3">Product</th>
                           <th scope="col-3">Available</th>
                           <!-- <th scope="col" class="text-center">Quantity</th> -->
-                          <th scope="col-3" class="text-right">Price</th>
+                          <th scope="col-3" class="text-center">Price</th>
                           <th> </th>
                       </tr>
                   </thead>
@@ -112,10 +112,10 @@
                       <tr *ngFor="let p of prodList">
                           <td><img src="./assets/{{p.prodName}}.jpg" height="80px" width="80px" style="border-radius: 10px;"/> </td>
                           <td style="margin-top: 50%;">{{p.prodName}}</td>
-                          <td>In stock</td>
+                          <td class="text-success">In stock</td>
                           <!-- <td style="text-align: center;">1</td> -->
-                          <td class="text-right">{{p.prodPrice | currency:"INR" :'symbol':'1.2-2'}}</td>
-                          <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                          <td class="text-center">{{p.prodPrice | currency:"INR" :'symbol':'1.2-2'}}</td>
+                          <td class="text-center"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
                       </tr>
                       <!-- <tr>
                           <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
@@ -153,9 +153,10 @@
                           <td></td>
                           <td></td>
                           <!-- <td></td> -->
+                          
+                          <td class="text-right"><strong>Total</strong></td>
+                          <td class="text-center"><strong>{{totalcartvalue | currency:"INR"}}</strong></td>
                           <td></td>
-                          <td><strong>Total</strong></td>
-                          <td class="text-right"><strong>{{totalcartvalue | currency:"INR"}}</strong></td>
                       </tr>
                   </tbody>
               </table>

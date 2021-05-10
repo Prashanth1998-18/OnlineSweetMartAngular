@@ -15,7 +15,8 @@
           <a href="/admin" class="nav-link" routerLink="admin"><i class="fa fa-tachometer" aria-hidden="true"></i>&nbsp;Admin Board</a>
         </li>
         <li class="nav-item" *ngIf="showUserBoard && isLoggedIn">
-        <a href="/products" class="nav-link" *ngIf="isLoggedIn" routerLink="products">products</a>
+        <a href="/products" class="nav-link" *ngIf="isLoggedIn" routerLink="products">
+          <i class="fa fa-clipboard" aria-hidden="true"></i>products</a>
       </li>
       <li class="nav-item" *ngIf="showUserBoard && isLoggedIn">
         <a href="/cart" class="nav-link" *ngIf="isLoggedIn" routerLink="cart"><i class="bi bi-cart3"></i>&nbsp;Cart</a>

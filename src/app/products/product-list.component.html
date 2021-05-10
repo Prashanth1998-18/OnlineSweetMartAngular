@@ -8,8 +8,7 @@
   </div>
   <div class='card-body'>
     <div class='row'>
-      <div class='column col-md-2'><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search :</div>
-      <div class='column'>
+      <div class='column col-md-8'><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search :&nbsp;&nbsp;
         <input type='text' [(ngModel)]='listFilter' />
       </div>
     </div>
@@ -18,23 +17,21 @@
         <h4>Search: {{listFilter}}</h4>
       </div>
     </div>
-    <div class="row" >
+    <div class="row" style="align-items: center;">
      
       <div *ngFor='let p of filteredProducts'>
         <!-- <div class="col-6"> -->
         <div class="card" style="padding:10px; margin:10px; ">
-          <div class="row">
-            <div class="col-6">
+          <!-- <div class="row"> -->
+            <div class="column">
             <a [routerLink]="['/products', p.prodId]">
               <img src="./assets/{{p.prodName}}.jpg" [style.width.px]='imageWidth' [style.height.px]='imageHeight' style="margin-left: 50px;"></a>
-              </div>
-              <div class="col-6" style="margin-top: 50px;">
-            <!-- <input type="checkbox" value="{{p.prodName}}" /> -->
-            <p>{{p.prodPrice | currency:"INR" :'symbol':'1.2-2'}}</p>
-            <a [routerLink]="['/products', p.prodId]">
+              <br>
+            <a [routerLink]="['/products', p.prodId]" style="padding:10px;">
               {{ p.prodName | titlecase }}</a>
-              <br>
-              <br>
+              <br >
+              <p style="padding:10px;">{{p.prodPrice | currency:"INR" :'symbol':'1.2-2'}}</p>
+              <!-- <br> -->
               <button class='btn btn-primary'
                         (click)='addToOrder(p)' id={{p.prodId}}  value="{{p.prodName}}">
                   Add to Cart
@@ -46,7 +43,6 @@
     </div>
     </div>
   </div>
-</div>
 </div>
 <div *ngIf='errorMessage' class='alert alert-danger'>
   Error: {{ errorMessage }}
