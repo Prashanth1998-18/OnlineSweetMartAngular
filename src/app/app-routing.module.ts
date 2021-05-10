@@ -26,6 +26,9 @@ import { GetCustomersComponent } from './board-admin/get/get.component';
 import { GetbyidComponent } from './board-admin/getbyid/getbyid.component';
 import { UpdatedetailsComponent } from './profile/updatedetails/updatedetails.component';
 import { ViewOrdersdetailComponent } from './profile/viewdetail/viewdetail.component';
+import { UserProductListComponent } from './products/product-list.component';
+import { UserProductDetailComponent } from './products/product-detail.component';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -34,7 +37,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent,canActivate:[AuthGuard] },
-  { path: 'user', component: BoardUserComponent,canActivate:[AuthGuard]},
+  { path: 'products', component: UserProductListComponent,canActivate:[AuthGuard]},
+  {path: 'products/:id', component:UserProductDetailComponent,canActivate:[AuthGuard]},
+  { path: 'cart', component:CartComponent,canActivate:[AuthGuard]},
       {path:'orders/:id',component:ViewOrdersdetailComponent,canActivate:[AuthGuard] },
   { path: 'userupdate' ,component:UpdatedetailsComponent,canActivate:[AuthGuard]},
   { path: 'myorders', component:OrdersComponent,canActivate:[AuthGuard]},

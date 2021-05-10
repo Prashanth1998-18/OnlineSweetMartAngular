@@ -41,6 +41,10 @@ import { SearchfilterPipeCustomer } from './board-admin/searchfiltercustomer.pip
 import { UpdatedetailsComponent } from './profile/updatedetails/updatedetails.component';
 import { MatButtonModule } from '@angular/material/button';
 import { ViewOrdersdetailComponent } from './profile/viewdetail/viewdetail.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { UserProductListComponent } from './products/product-list.component';
+import { UserProductDetailComponent } from './products/product-detail.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +76,10 @@ import { ViewOrdersdetailComponent } from './profile/viewdetail/viewdetail.compo
     GetbyidComponent,
     SearchfilterPipeCustomer,
     UpdatedetailsComponent,
-    ViewOrdersdetailComponent
+    ViewOrdersdetailComponent,
+    UserProductListComponent,
+    UserProductDetailComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +92,8 @@ import { ViewOrdersdetailComponent } from './profile/viewdetail/viewdetail.compo
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
     
   ],
   providers: [authInterceptorProviders,AuthGuard],

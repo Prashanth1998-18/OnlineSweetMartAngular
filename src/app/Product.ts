@@ -4,9 +4,9 @@ export class Product
 {
     
     prodName!: string;
-    prodPrice!: string;
+    prodPrice!: number;
     expDate!: string;
     category!: Category;
-    prodId!: string;
+    prodId!: number;
 
 }

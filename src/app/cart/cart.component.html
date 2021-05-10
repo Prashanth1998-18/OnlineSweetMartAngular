@@ -1,0 +1,71 @@
+<!-- <div class="container" *ngIf="order.length!=0">
+  <div class="panel panel-primary">
+   
+<label id= L1>Contents</label>
+<div class="row">
+  <div class="panel-body">
+    <table class="table table-hover table-striped " >
+  <thead class="thead-dark">
+    <th >ID</th>
+    <th >Name</th>
+    <th >Price</th>
+  </thead>
+  <tr *ngFor="let p of order">
+    <th scope="row">{{p.prodId}}</th>
+    <td >{{p.prodName}}</td>
+    <td >{{p.prodPrice}}</td>
+  </tr>
+</table>
+</div>
+</div> -->
+
+<div class="container">
+  <div class="row">
+      <div class="col-sm-12 col-md-10 col-md-offset-1">
+          <table class="table">
+              <thead class="thead-dark">
+                      <th class="text-center">Sweet</th>
+                      <th></th>
+                      <th></th>
+                      <th class="text-center">Price</th>
+                      <th class="text-center">Action </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let p of prodList">
+                  <td class="col-sm-8 col-md-6">
+                    <div class="media">
+                      <a [routerLink]="['/products', p.prodId]">
+                        <img class="media-object" src="./assets/{{p.prodName}}.jpg" style="width: 72px; height: 72px;"> </a>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a [routerLink]="['/products', p.prodId]">{{p.prodName}}</a></h4>
+                            <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                        </div>
+                    </div>
+                  </td>
+                    <td class="col-sm-1 col-md-1" style="text-align: center">
+                    </td>
+                    <td></td>
+                    <td class="col-sm-1 col-md-1 text-center"><strong>{{p.prodPrice | currency:"INR" :'symbol':'1.2-2'}}</strong></td>
+                    <td class="col-sm-1 col-md-1">
+                    <button type="button" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove" >
+                        <!-- (click)='removeFromCart(p)'>-->
+                  </span> Remove
+                    </button></td>
+                </tr>
+                <tr>
+                  <td>   </td>
+                  <td>   </td>
+                  <td><h3>Total {{totalcartvalue}}</h3></td>
+                  <!-- <td class="text-right"><h3><strong>{{Total}}</strong></h3></td> -->
+              </tr>
+              <tr>
+                <td>   </td>
+                <td>   </td>
+                <h3><button (click)="placeOrder()">Place Order</button></h3>
+              </tr>
+              </tbody>
+          </table>
+          </div>
+          </div>
+          </div>

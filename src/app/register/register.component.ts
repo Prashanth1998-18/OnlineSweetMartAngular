@@ -21,6 +21,8 @@ export class RegisterComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  isNum=true;
+  isZip=true;
 
   constructor(private authService: AuthService,private router: Router) { }
 
@@ -43,6 +45,9 @@ export class RegisterComponent implements OnInit {
    const { username, email, password,city,contactNo,zip } = this.form;
     // const data=JSON.stringify(this.registrationform.value);
     // console.log()
+    this.isNum = /^\d+$/.test(contactNo);
+   this.isZip=/^\d+$/.test(zip);
+    if(this.isNum && this.isZip){
     if(this.confirmPassword == password){
     this.authService.register(username, email, password, city, contactNo, zip).subscribe(
       data => {
@@ -61,6 +66,7 @@ export class RegisterComponent implements OnInit {
       this.isSignUpFailed=true;
       this.errorMessage = "Passwords dont Match"
     }
+  }
   }
 
   gotoLogin(){

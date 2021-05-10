@@ -16,7 +16,6 @@ export class UpdatedetailsComponent implements OnInit {
   name:string=this.cust.username;
   isNum=true;
   isZip=true;
-  isName=true;
   // id1:number=this.id + 1;
   // cust1!: customer;
 

@@ -121,6 +121,7 @@
       <div class="alert-danger" *ngIf="contactNo.invalid && (contactNo.dirty || contactNo.touched)">
           <div *ngIf="contactNo.errors.required">Enter Mobile Number</div>
         </div>
+        <div class="alert-danger" *ngIf="!isNum">Enter a proper contact number</div>
     </div>
   </div>
   <div class="col">
@@ -137,6 +138,7 @@
       <div class="alert-danger" *ngIf="zip.invalid && (zip.dirty || zip.touched)">
           <div *ngIf="zip.errors.required">Enter ZIP CODE</div>
         </div>
+        <div class="alert-danger" *ngIf="!isZip">Enter proper Zip Code</div>
     </div>
   </div>
 </div>

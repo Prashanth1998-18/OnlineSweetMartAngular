@@ -1,0 +1,43 @@
+<div class="sidebar">
+  <div *ngFor="let p of "></div>
+</div>
+<div class='card'>
+  <div class='card-header'>
+    {{pageTitle}}
+  </div>
+  <div class='card-body'>
+    <div class='row'>
+      <div class='column col-md-1'>Filter by:</div>
+      <div class='column'>
+        <input type='text' [(ngModel)]='listFilter' />
+      </div>
+    </div>
+    <div class='row' *ngIf='listFilter'>
+      <div class='col-md-2'>
+        <h4>Search: {{listFilter}}</h4>
+      </div>
+    </div>
+    <div class="row" style="align-items: center;" >
+      <div *ngFor='let p of filteredProducts'>
+        <div class="card" style="padding:10px; margin:10px; ">
+          <div class="column">
+            <a [routerLink]="['/products', p.prodId]">
+              <img src="./assets/{{p.prodName}}.jpg" [style.width.px]='imageWidth' [style.margin.px]='imageMargin'
+                [style.height.px]='imageHeight'></a>
+          <br>
+            <!-- <input type="checkbox" value="{{p.prodName}}" /> -->
+            <a [routerLink]="['/products', p.prodId]">
+              {{ p.prodName }}</a><br>
+              <button class='btn btn-primary'
+                        (click)='addToOrder(p)' id={{p.prodId}}  value="{{p.prodName}}">
+                  Add to Cart
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf='errorMessage' class='alert alert-danger'>
+  Error: {{ errorMessage }}
+</div>
