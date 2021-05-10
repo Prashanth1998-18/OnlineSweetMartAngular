@@ -9,9 +9,14 @@
   <div class='card-body'>
     <div class='row'>
       <div class='column col-md-2'><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search :</div>
+      <br>
+      <br>
       <div class='column'>
-        <input type='text' [(ngModel)]='listFilter' />
+        <div class='col-md-2'>
+        <!-- <input type='text' [(ngModel)]='listFilter' /> -->
+        <input type="text" [(ngModel)]="listFilter" class="form-control" id="listFilter" placeholder="Search product"/>
       </div>
+    </div>
     </div>
     <div class='row' *ngIf='listFilter'>
       <div class='col-md-2'>

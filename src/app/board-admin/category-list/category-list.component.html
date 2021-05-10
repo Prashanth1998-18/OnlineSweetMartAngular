@@ -16,18 +16,18 @@
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
-          <th>Category Id</th>
-          <th>Category Name</th>
+          <th style="text-align: center;">Category Id</th>
+          <th style="text-align: center;">Category Name</th>
           
-          <th>Actions</th>
+          <th style="text-align: center;">Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let p of category | searchfiltercategory:searchValue">
-          <td>{{p.categoryId}}</td>
-          <td>{{p.name}}</td>
+          <td style="text-align: center;">{{p.categoryId}}</td>
+          <td style="text-align: center;">{{p.name}}</td>
           
-          <td><button (click)="deleteCategory(p.categoryId)" class="btn btn-danger">Delete</button>
+          <td style="text-align: center;"><button (click)="deleteCategory(p.categoryId)" class="btn btn-danger">Delete</button>
             <button (click)="updateCategory(p.categoryId)" class="btn btn-info" style="margin-left: 10px">Update</button>
               <!-- <button (click)="CategoryDetails(p.categoryId)" class="btn btn-info" style="margin-left: 10px">Details</button> -->
           </td>

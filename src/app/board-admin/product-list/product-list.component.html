@@ -16,22 +16,22 @@
       <table class="table table-striped">
         <thead class="thead-dark">
           <tr>
-            <th>Product ID</th>
-            <th>Product Name</th>
-            <th>Product Price</th>
-            <th>Product Expiry</th>
-            <th>Category</th>
-            <th>Actions</th>
+            <th style="text-align: center;">Product ID</th>
+            <th style="text-align: center;">Product Name</th>
+            <th style="text-align: center;">Product Price</th>
+            <th style="text-align: center;">Product Expiry</th>
+            <th style="text-align: center;">Category</th>
+            <th class="text-center">Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let p of products | searchfilterproduct:searchValue">
-            <td>{{p.prodId}}</td>
-            <td>{{p.prodName}}</td>
-            <td>{{p.prodPrice | currency:'INR'}}</td>
-            <td>{{p.expDate}}</td>
-            <td>{{p.category.name}}</td>
-            <td><button (click)="deleteProduct(p.prodId)" class="btn btn-danger">Delete</button>
+            <td style="text-align: center;">{{p.prodId}}</td>
+            <td style="text-align: center;">{{p.prodName}}</td>
+            <td style="text-align: center;">{{p.prodPrice | currency:'INR'}}</td>
+            <td style="text-align: center;">{{p.expDate}}</td>
+            <td style="text-align: center;">{{p.category.name}}</td>
+            <td style="text-align: center;"><button (click)="deleteProduct(p.prodId)" class="btn btn-danger">Delete</button>
               <button (click)="updateProduct(p.prodId)" class="btn btn-info" style="margin-left: 10px">Update</button>
                 <button (click)="productDetails(p.prodId)" class="btn btn-info" style="margin-left: 10px">Details</button>
             </td>

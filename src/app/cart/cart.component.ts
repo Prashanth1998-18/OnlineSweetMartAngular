@@ -8,6 +8,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 import { Customerservice } from '../_services/customerdata.service';
 import { Router } from '@angular/router';
 //import { window } from 'rxjs/operators';
+//import { window } from 'rxjs/operators';
 
 
 
@@ -58,35 +59,20 @@ export class CartComponent implements OnInit {
     });
       window.sessionStorage.removeItem('cart');
       this.router.navigate(['/myorders']);
-  //  console.log(this.prodList);
-  //  console.log(this.prodList2);
-  //   this.order={
-  //     "orderId":1,
-  //     "customer":{"id":this.cust1.id},
-  //      "prodList":{...this.prodList}
-  // };
-
-    //console.log(this.order);
-    // setTimeout(()=>{},1000);
-      
-    
   }
 
-  // total: number;
-  // prod:Product;
-  // add(prodList){
-  //   this.prod=prodList 
-  // for(let j=0;j<prodList.length;j++){  
-  //      this.total+= this.prod[j].prodPrice  
-  //      } 
-  // }
-  // removeFromCart(prod:Product){
-  //   this.prodList.filter((product:Product)=>{
-  //     if(product.prodId!=prod.prodId){
-  //         product;
-  //     }
-  //   }
-  // }
+  removeFromCart(prod:Product){
+    this.totalcartvalue-=prod.prodPrice;
+    for(var i=0;i<this.prodList.length;i++)
+    { 
+        // this.totalcartvalue+=obj.prodPrice;
+        if(prod.prodId== this.prodList[i].prodId){
+          this.prodList.splice(i,1);
+        }
+    }
+    window.sessionStorage.setItem('cart',JSON.stringify(this.prodList));
+    window.location.reload();
+  }
 
 
 }

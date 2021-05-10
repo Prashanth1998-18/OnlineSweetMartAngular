@@ -115,7 +115,7 @@
                           <td>In stock</td>
                           <!-- <td style="text-align: center;">1</td> -->
                           <td class="text-right">{{p.prodPrice | currency:"INR" :'symbol':'1.2-2'}}</td>
-                          <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                          <td class="text-right"><button (click)="removeFromCart(p)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
                       </tr>
                       <!-- <tr>
                           <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
