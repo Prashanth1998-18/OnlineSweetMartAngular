@@ -36,7 +36,7 @@ export class CartComponent implements OnInit {
   orderId:number=1;
   ngOnInit(): void { 
      this.customer.getCustomerbyName(this.name).subscribe((data: any) =>{
-      console.log(data);
+     // console.log(data);
       this.cust1=data;
     },(error: any) => console.log(error));
    
@@ -44,10 +44,10 @@ export class CartComponent implements OnInit {
      for(var i=0;i<this.prodList.length;i++)
     { 
         var obj=this.prodList[i];
-        console.log(obj.prodPrice);
+        //console.log(obj.prodPrice);
         this.totalcartvalue+=obj.prodPrice;
     }
-    console.log(this.totalcartvalue);
+    //console.log(this.totalcartvalue);
     //console.log(this.prodList2);
   }
   //prodList:window.sessionStorage.getItem('cart');
@@ -58,6 +58,8 @@ export class CartComponent implements OnInit {
       console.log(data);
     });
       window.sessionStorage.removeItem('cart');
+      setTimeout(()=>{window.location.reload();},100);
+      //window.location.reload();
       this.router.navigate(['/myorders']);
   }
 

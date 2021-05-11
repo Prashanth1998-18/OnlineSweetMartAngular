@@ -37,7 +37,7 @@ export class UpdateProductComponent implements OnInit {
 
     this.productService.getProduct(this.id)
     .subscribe((data: any) => {
-      console.log(data)
+     // console.log(data)
       this.product = data;
     }, (error: any) => console.log(error));
 
@@ -46,7 +46,7 @@ export class UpdateProductComponent implements OnInit {
   updateProduct() {
     this.productService.updateProduct(this.product)
       .subscribe((data: any) => {
-        console.log(data);
+        //console.log(data);
         this.product = new Product();
         this.gotoList();
       }, (error: any) => console.log(error));

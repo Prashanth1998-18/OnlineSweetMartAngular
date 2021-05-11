@@ -35,7 +35,7 @@ export class ProductListComponent implements OnInit {
     if(cfrm){
     this.productService.deleteProduct(id).subscribe(
       (data: any) => {
-        console.log(data);
+        //console.log(data);
         this.reloadData();
       },
       (error: any) => console.log(error));

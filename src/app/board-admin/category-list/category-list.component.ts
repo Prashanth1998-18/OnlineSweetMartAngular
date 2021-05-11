@@ -33,7 +33,7 @@ export class CategoryListComponent implements OnInit {
   {
     this.categoryService.deleteCategory(id).subscribe(
       (data: any) => {
-        console.log(data);
+        //console.log(data);
         this.reloadData();
       },
       (error: any) => console.log(error));
