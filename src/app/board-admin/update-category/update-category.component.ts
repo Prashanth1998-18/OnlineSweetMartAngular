@@ -53,7 +53,7 @@ export class UpdateCategoryComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['category']);
+    this.router.navigate(['admin/category']);
   }
 
 }
