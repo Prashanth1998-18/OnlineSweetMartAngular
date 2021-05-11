@@ -22,7 +22,7 @@ export class GetbyidComponent implements OnInit {
 
     this.customertService.getCustomer(this.id)
       .subscribe((data: any) => {
-        console.log(data)
+        //console.log(data)
         this.customer = data;
       }, (error: any) => console.log(error));
 

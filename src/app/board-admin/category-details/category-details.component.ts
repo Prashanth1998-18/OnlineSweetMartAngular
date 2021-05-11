@@ -23,7 +23,7 @@ export class CategoryDetailsComponent implements OnInit {
 
     this.categoryService.getCategory(this.id)
       .subscribe((data: any) => {
-        console.log(data)
+       // console.log(data)
         this.category = data;
       }, (error: any) => console.log(error));
 

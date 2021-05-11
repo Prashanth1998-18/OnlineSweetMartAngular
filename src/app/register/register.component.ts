@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
     if(this.confirmPassword == password){
     this.authService.register(username, email, password, city, contactNo, zip).subscribe(
       data => {
-        console.log(data);
+        //console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         this.gotoLogin();

@@ -29,7 +29,7 @@ constructor(private token: TokenStorageService,private customer:Customerservice,
   ngOnInit(): void {
     console.log(this.name);
     this.customer.getCustomerbyName(this.name).subscribe((data: any) =>{
-      console.log(data);
+      //console.log(data);
       this.cust=data;
     },(error: any) => console.log(error));
   }

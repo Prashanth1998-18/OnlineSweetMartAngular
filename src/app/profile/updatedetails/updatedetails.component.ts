@@ -22,15 +22,15 @@ export class UpdatedetailsComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.name);
     this.customer.getCustomerbyName(this.name).subscribe((data: any) =>{
-      console.log(data);
+     // console.log(data);
       this.cust=data;
     },(error: any) => console.log(error));
   }
 
   updatedetails(){ 
-    console.log(this.cust+"above")
+   // console.log(this.cust+"above")
     this.customer.updateCustomer(this.cust).subscribe((data: any)=>{
-      console.log(data+" from update details");
+      //console.log(data+" from update details");
         this.cust = new customer();
     }, (error: any) => console.log(error));
   }

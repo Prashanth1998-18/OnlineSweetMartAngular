@@ -33,7 +33,7 @@ export class UpdateCategoryComponent implements OnInit {
 
     this.categoryService.getCategory(this.id)
     .subscribe((data: any) => {
-      console.log(data)
+      //console.log(data)
       this.category = data;
     }, (error: any) => console.log(error));
 
@@ -42,7 +42,7 @@ export class UpdateCategoryComponent implements OnInit {
   updateCategory() {
     this.categoryService.updateCategory(this.category)
       .subscribe((data: any) => {
-        console.log(data);
+        //console.log(data);
         this.category = new Category();
         this.gotoList();
       }, (error: any) => console.log(error));
@@ -53,7 +53,7 @@ export class UpdateCategoryComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['category']);
+    this.router.navigate(['admin/category']);
   }
 
 }
