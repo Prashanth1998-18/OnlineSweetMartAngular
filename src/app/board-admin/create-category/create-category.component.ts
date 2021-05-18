@@ -29,10 +29,7 @@ export class CreateCategoryComponent implements OnInit {
   ngOnInit() {
   }
  
-  newProduct(): void {
-    this.submitted = false;
-    this.category = new Category();
-  }
+ 
  
   save() {
     const data = {
@@ -45,19 +42,18 @@ export class CreateCategoryComponent implements OnInit {
     this.category = new Category();
   }
  
-  // saveProduct(saveProduct: any){
-  //   this.product-new Product();
-  //   this.product.prodId=this.
-  // }
  
-  // onSubmit() {
-  //   //const {prodId,prodName,prodPrice,expDate,category}=this.form;
-  //   this.submitted = true;
-  //   this.saveProduct();    
-  // }
  
   gotoList() {
     this.router.navigate(['/category']);
+  }
+
+
+
+
+  newProduct(): void {
+    this.submitted = false;
+    this.category = new Category();
   }
  
 }
